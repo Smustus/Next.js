@@ -24,10 +24,22 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+a {
+  
+}
+
+a:hover {
+  color: rgba(151, 0, 0, 0.8);
 }

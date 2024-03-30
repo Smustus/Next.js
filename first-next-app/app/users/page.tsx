@@ -19,14 +19,12 @@ const UsersPage  = async () => {
   
 
   return (
-    <>
-      <div>Users Page</div>
-      <br />
-      <ul>
+    <main className='flex flex-col justify-between items-center text-center p-6'>
+      <h1 className='m-5'>Users Page</h1>
+      <ul className='mb-16'>
         { users }
       </ul>
-    </>
-    
+    </main>
   )
 }
 
