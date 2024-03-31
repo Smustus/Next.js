@@ -1,2 +1,2 @@
 # Next.js
-Practice NextJS app using Tailwind
+Practice NextJS apps using Tailwind and Typescript
