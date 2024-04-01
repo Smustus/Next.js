@@ -11,11 +11,13 @@ const UsersPage  = async () => {
   const response = await fetch('https://jsonplaceholder.typicode.com/users');
   //set the type of data inside the "data" variable to reasebmle User interface
   const data: User[] = await response.json();
+  console.log(data);
+  
 
   const users = data.map((user) => {    
     return <li key={ user.id }>{user.name}</li>
   });
-  console.log(users);
+  /* console.log(users); */
   
 
   return (
