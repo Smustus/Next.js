@@ -1,9 +1,9 @@
+
 import React from 'react'
 import type Todo from './types';
 
 
 async function Home() {
-
   const response = await fetch('http://localhost:3000/api/todos');
   console.log(response);
   const data: Todo[] = await response.json();
