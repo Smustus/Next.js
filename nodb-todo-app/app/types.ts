@@ -1,8 +1,8 @@
-type Todo = {
+type TodoTemplate = {
   id: string
   title: string
-  details: string[]
+  details: string
   completed: boolean
 }
 
-export default Todo;
+export default TodoTemplate;
