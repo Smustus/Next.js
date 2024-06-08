@@ -1,5 +1,5 @@
 import { NavLink, Navigation } from '@/components/Navigation';
-import React from 'react'
+import Link from 'next/link';
 
 
 function AdminLayout({children,}: Readonly<{children: React.ReactNode}>) {
@@ -11,7 +11,10 @@ function AdminLayout({children,}: Readonly<{children: React.ReactNode}>) {
         <NavLink href="/admin/users">Customers</NavLink>
         <NavLink href="/admin/orders">Orders</NavLink>
       </Navigation>
-      <div className="">{children}</div>
+      <div className="">
+        {children}
+      </div>
+      
     </>
   );
 }
