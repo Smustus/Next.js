@@ -5,7 +5,7 @@ import React, { ComponentProps, ReactNode } from 'react'
 
 export const Navigation = ({ children }: { children: ReactNode }) => {
   return (
-    <nav className="bg-stone-500 text-stone-100 w-full flex justify-center p-4">{ children }</nav>
+    <nav className="bg-stone-500 text-stone-100 h-full w-full flex justify-center p-4">{ children }</nav>
   )
 }
 

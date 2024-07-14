@@ -1,6 +1,8 @@
 import { NavLink, Navigation } from '@/components/Navigation';
 import Link from 'next/link';
 
+export const dynamic = "force-dynamic" //disallow caching
+
 
 function AdminLayout({children,}: Readonly<{children: React.ReactNode}>) {
   return (

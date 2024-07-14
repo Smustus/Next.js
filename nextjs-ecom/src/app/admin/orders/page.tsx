@@ -1,8 +1,10 @@
-import React from 'react'
+import PageHeader from "@/components/PageHeader"
 
 const AdminOrders = () => {
   return (
-    <div>AdminOrders</div>
+    <main className='bg-stone-200 w-full h-screen text-stone-800'>
+      <PageHeader>Admin Orders Page</PageHeader>
+    </main>
   )
 }
 
