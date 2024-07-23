@@ -10,7 +10,6 @@ export const Navigation = ({ children }: { children: ReactNode }) => {
 }
 
 export const NavLink = (props: Omit<ComponentProps<typeof Link>, "className">) => {
-  console.log(props);
   const pathname = usePathname();
   return <Link {...props} className={`p-2 m-2 
   hover:text-stone-400 hover:text-

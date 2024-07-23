@@ -4,7 +4,7 @@ import ProductForm from "../productForm/ProductForm"
 const NewProduct = () => {
   return (
     <main className='bg-stone-200 w-full h-screen text-stone-800'>
-      <PageHeader>Add new product</PageHeader>
+      <PageHeader>Lägg till produkt</PageHeader>
       <ProductForm />
     </main>
   )

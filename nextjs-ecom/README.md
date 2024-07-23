@@ -17,3 +17,12 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 ---------------------------------------------------------------------------------------------------------------
 
+Full-Stack Webshop in NextJS
+
+SQLite database
+
+Dependancies:
+ORM - Prisma
+Validation - Zod
+
+Admin Page
