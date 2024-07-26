@@ -3,18 +3,20 @@ import Label from "@/components/Label"
 import Input from "@/components/Input"
 import Button from "@/components/Button"
 import { useState, ChangeEvent, useEffect } from "react"
-import { formatSEK } from "@/tools/formatters"
-import addProduct from "../../_actions/products"
+import { formatSEK } from "@/utilities/formatters"
+import addProduct, { editProduct } from "../../_actions/products"
 import { useFormState, useFormStatus } from "react-dom"
+import { Product } from "@prisma/client"
+import Image from "next/image"
 
-const ProductForm = () => {
+const ProductForm = ({product}: {product?: Product | null}) => {
   const [formData, setFormData] = useState<{ [key: string]: string | number }>({
     name: '',
     price: 0,
     description: ''
   });
 
-  const [error, formAction] = useFormState(addProduct, {});
+  const [error, formAction] = useFormState(product == null ? addProduct : editProduct.bind(null, product.id), {});
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { id, value } = e.target;
@@ -29,7 +31,9 @@ const ProductForm = () => {
 
   function SubmitBtn() {
     const { pending } = useFormStatus();  
-    return <Button btnText={pending ? "Sparar" : "Lägg till" } type="submit" disabled={pending} />
+    return <Button type="submit" disabled={pending}>
+      {pending ? "Sparar" : "Spara" }
+    </Button>
   }
 
   return (
@@ -37,13 +41,13 @@ const ProductForm = () => {
     <form action={formAction}>
      <fieldset>
       <Label htmlFor="title" text="Produktnamn: " />
-      <Input type="text" id="title" name="title" required onChange={handleChange} />
+      <Input type="text" id="title" name="title" defaultValue={product?.title || ""} onChange={handleChange} required />
       {error.title && <article className="text-red-700">{error.title}</article>}
      </fieldset>
 
      <fieldset>
       <Label htmlFor="price" text="Pris(öre): " />
-      <Input type="number" id="price" name="price" required onChange={handleChange} />
+      <Input type="number" id="price" name="price" defaultValue={product?.priceHundredth || 0} required onChange={handleChange} />
       {error.price && <article className="text-red-700">{error.price}</article>}
       <div>
         {formatSEK(Number(formData.price) / 100) || 0}
@@ -53,19 +57,27 @@ const ProductForm = () => {
 
      <fieldset>
       <Label htmlFor="description" text="Produktbeskrivning: " />
-      <textarea name="description" id="description" required onChange={handleChange} value={formData.description as string} />
+      <textarea name="description" id="description" required onChange={handleChange} defaultValue={product?.description || ""} />
       {error.description && <article className="text-red-700">{error.description}</article>}
      </fieldset>
 
      <fieldset>
      <Label htmlFor="image" text="Bild: " />
-     <Input type="file" id="image" name="image" required />
+     <Input type="file" id="image" name="image" required={product == null} />
+     {product != null && (<>
+      <div className="">{product.imagePath}</div>
+      <Image className="" height="100" width="100" alt="Product picture" src={`${product.imagePath}`} />
+      </>
+     )}
      {error.image && <article className="text-red-700">{error.image}</article>}
      </fieldset>
 
      <fieldset>
      <Label htmlFor="file" text="Nedladdningsfil: " />
-     <Input type="file" id="file" name="file" required />
+     <Input type="file" id="file" name="file" required={product == null} />
+     {product != null && (
+      <div className="">{product.filePath}</div>
+     )}
      {error.file && <article className="text-red-700">{error.file}</article>}
      </fieldset>
 

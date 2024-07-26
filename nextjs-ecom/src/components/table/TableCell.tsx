@@ -8,7 +8,7 @@ interface TableCellProps {
 const TableCell = ({children, className}: TableCellProps) => {
 
   return (
-    <div className={className}>
+    <div className={`text-sm mx-1 ${className}`}>
       {children}
     </div>
   )

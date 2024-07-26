@@ -11,8 +11,8 @@ const DropdownMenu = ({ children, isActive, toggleDropdown }: DropdownProps) => 
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+  const handleClickOutside = (e: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
       toggleDropdown();
     }
   };
@@ -30,14 +30,15 @@ const DropdownMenu = ({ children, isActive, toggleDropdown }: DropdownProps) => 
   }, [isActive]);
 
   return (
-    <div className="relative inline" ref={dropdownRef}>
-      <button onClick={toggleDropdown} className="cursor-pointer">
+    <div className="relative" ref={dropdownRef}>
+      <button onClick={toggleDropdown} className={`cursor-pointer hover:drop-shadow-lg`}>
         &#9776;
       </button>
-      <section
-        className={`flex flex-col ${isActive ? 'inline' : 'hidden'} absolute top-full right-0 bg-white text-black shadow-lg rounded z-10`}>
+      {isActive && 
+      (<section className={`absolute flex flex-col top-full -right-full bg-stone-50 text-black shadow-lg rounded z-50 border-solid border-2 border-stone-100 px-2`}>
         {children}
       </section>
+      )}
     </div>    
   )
 }

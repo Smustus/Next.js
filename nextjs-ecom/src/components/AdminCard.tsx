@@ -9,8 +9,8 @@ type AdminDashboardCardProps = {
 const AdminCard = ({title, subtitle, data}: AdminDashboardCardProps) => {
   return (<article>
       <header>
-        <h2>{title}</h2>
-        <h3>{subtitle}</h3>
+        <h3>{title}</h3>
+        <p>{subtitle}</p>
       </header>
       <section>
         <p>{data}</p>

@@ -1,8 +1,9 @@
 import prisma from '@/db/db'
 import AdminCard from '@/components/AdminCard'
 import Link from 'next/link'
-import { formatSEK, formatNumber } from '@/tools/formatters'
+import { formatSEK, formatNumber } from '@/utilities/formatters'
 import PageHeader from '@/components/PageHeader'
+import { NavLink } from '@/components/Navigation'
 
 async function getSaleData() {
   const data = await prisma?.order.aggregate({
@@ -51,13 +52,13 @@ const AdminDashboard = async () => {
   return (
     <main className='bg-stone-200 w-full h-screen text-stone-800'>
       <PageHeader>AdminDashboard</PageHeader>
-      <Link href="/" className='flex items-center justify-center underline m-4'>Home Page</Link>
+      <NavLink href="/" className='flex items-center justify-center underline m-4'>Home Page</NavLink>
 
       <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-6 items-center text-center '>
 
-        <AdminCard title="Sales" subtitle={formatNumber(salesData.numberOfSales)} data={formatSEK(salesData.totalAmount)}/>
-        <AdminCard title="Users" subtitle={formatNumber(userData.userCount)} data={`${formatSEK(userData.averageSumPerUser)} genomsnitt`}/>
-        <AdminCard title="Products" subtitle={formatNumber(productData.activeProd)} data={`${formatNumber(productData.inactiveProd)} Inaktiva`}/>
+        <AdminCard title="Försäljning" subtitle={formatNumber(salesData.numberOfSales)} data={formatSEK(salesData.totalAmount)}/>
+        <AdminCard title="Användare" subtitle={formatNumber(userData.userCount)} data={`${formatSEK(userData.averageSumPerUser)} / användare`}/>
+        <AdminCard title="Produkter" subtitle={formatNumber(productData.activeProd)} data={`${formatNumber(productData.inactiveProd)} Inaktiva`}/>
         
       </section>
       

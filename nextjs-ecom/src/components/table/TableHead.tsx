@@ -5,7 +5,7 @@ const TableHead = ({children}: {children: ReactNode}) => {
   const childrenArr = React.Children.toArray(children);
   const columns = childrenArr.length;
 
-  const gridCols = {
+  const gridCols: { [key: number]: string } = {
     1: 'grid-cols-1',
     2: 'grid-cols-2',
     3: 'grid-cols-3',
@@ -23,7 +23,7 @@ const TableHead = ({children}: {children: ReactNode}) => {
   const selectedGrid = gridCols[columns];
 
   return (
-    <section className={`grid ${selectedGrid} bg-stone-700 text-white rounded m-0.5 p-1 drop-shadow-lg`}>
+    <section className={`grid ${selectedGrid} bg-gradient-to-br from-stone-700 via-stone-500 to-stone-700 text-white rounded m-0.5 p-1 shadow-lg`}>
       {children}
     </section>
   )

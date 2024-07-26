@@ -6,12 +6,13 @@ interface InputProps {
   id: string,
   name: string,
   required?: boolean,
+  defaultValue?: string | number;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input: React.FC<InputProps> = ({type, id, name, required, onChange}) => {
+const Input: React.FC<InputProps> = ({type, id, name, required, defaultValue, onChange}) => {
   return (
-    <input type={type} id={id} name={name} required={required} onChange={onChange}/>
+    <input type={type} id={id} name={name} required={required} defaultValue={defaultValue} onChange={onChange}/>
   )
 }
 

@@ -1,7 +1,10 @@
+"use client"
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ReactNode } from "react";
 
 interface ButtonProps {
-  btnText: string;
+  children: ReactNode;
   onClick?: () => void;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -10,25 +13,44 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
-  btnText = '',
+  children,
   onClick,
-  className = 'inline-block p-3 m-2 bg-stone-700 text-white rounded  hover:text-stone-300 hover:bg-stone-600 hover:text-focus-visible:outline-dotted focus-visible:text-stone-400 focus-visible:rounded drop-shadow-lg w-fit h-fit font-semibold',
+  className = "",
   type = 'button',
   disabled = false,
   href
 }) => {
 
+  const path = usePathname();
+  
+  if(path.startsWith("/admin")){
+    if(href) {
+      return (
+        <Link href={href} className={`text-sm text-white inline-block p-3 m-2 bg-gradient-to-br from-stone-700 via-stone-500 to-stone-700 rounded hover:text-stone-100 hover:bg-gradient-to-br hover:from-stone-500 hover:via-stone-400 hover:to-stone-600 hover:text-focus-visible:outline-dotted focus-visible:text-stone-400 focus-visible:rounded drop-shadow-lg w-fit h-fit font-semibold ${className || ""}`}>
+            {children}
+        </Link>
+      );
+    }
+  
+    return (
+      <button type={type} onClick={onClick} className={`text-sm text-white inline-block p-3 m-2 hover:text-stone-100 hover:bg-gradient-to-tr hover:from-stone-700 hover:via-stone-500 hover:to-stone-700 hover:text-focus-visible:outline-dotted focus-visible:text-stone-400 focus-visible:rounded drop-shadow-lg w-fit h-fit font-semibold ${className || ""}`} disabled={disabled}>
+        {children}
+      </button>
+    );
+  }
+  
+  //Outside admin pages
   if(href) {
     return (
-      <Link href={href} className={`${className}`}>
-          {btnText}
+      <Link href={href} className={`text-sm text-white inline-block p-3 m-2 bg-gradient-to-b from-slate-300 via-slate-400 to-slate-500 rounded hover:text-white hover:bg-gradient-to-tr hover:from-slate-700 hover:via-slate-500 hover:to-slate-700 hover:text-focus-visible:outline-dotted focus-visible:text-stone-400 focus-visible:rounded drop-shadow-lg w-fit h-fit font-semibold ${className || ""}`}>
+          {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={className} disabled={disabled}>
-      {btnText}
+    <button type={type} onClick={onClick} className={`text-sm text-white inline-block p-3 m-2 bg-gradient-to-b from-slate-600 via-slate-400 to-slate-600 rounded hover:text-white hover:bg-gradient-to-tr hover:from-slate-700 hover:via-slate-500 hover:to-slate-700 hover:text-focus-visible:outline-dotted focus-visible:text-stone-400 focus-visible:rounded drop-shadow-lg w-fit h-fit font-semibold ${className || ""}`} disabled={disabled}>
+      {children}
     </button>
   );
 };
