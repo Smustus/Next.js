@@ -52,8 +52,7 @@ const AdminDashboard = async () => {
   return (
     <main className='bg-stone-200 w-full h-screen text-stone-800'>
       <PageHeader>AdminDashboard</PageHeader>
-      <NavLink href="/" className='flex items-center justify-center underline m-4'>Home Page</NavLink>
-
+    
       <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 p-6 items-center text-center '>
 
         <AdminCard title="Försäljning" subtitle={formatNumber(salesData.numberOfSales)} data={formatSEK(salesData.totalAmount)}/>

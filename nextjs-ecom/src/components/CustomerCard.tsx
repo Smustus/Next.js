@@ -13,7 +13,7 @@ interface CustomerCardProps {
 
 const CustomerCard = ({id, title, description, priceHundredth, imagePath}: CustomerCardProps) => {
   return (
-  <article className='flex flex-col rounded bg-slate-50 text-slate-800 overflow-hidden min-w-40 shadow-lg'>
+  <article className='flex flex-col rounded bg-gradient-to-br from-slate-50 to-slate-200 text-slate-800 overflow-hidden min-w-40 shadow-lg'>
     <figure className='relative w-full h-auto aspect-square'>
       <Image src={imagePath} alt={title} fill />
     </figure>
@@ -34,7 +34,7 @@ export default CustomerCard;
 
 export const CustomerCardEmpty = () => {
   return(
-  <article className='flex flex-col justify-center rounded bg-slate-50 text-slate-800 animate-pulse overflow-hidden min-w-40'>
+  <article className='flex flex-col justify-center rounded bg-gradient-to-br from-slate-50 to-slate-200 text-slate-800 animate-pulse overflow-hidden min-w-40'>
     <figure className='relative w-full h-auto aspect-square'>
       <div className='w-full h-full bg-gray-300'></div>
     </figure>

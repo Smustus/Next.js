@@ -8,10 +8,25 @@ function AdminLayout({children,}: Readonly<{children: React.ReactNode}>) {
   return (
     <>
       <Navigation className='flex justify-evenly bg-gradient-to-br from-stone-700 via-stone-500 to-stone-700 text-stone-100 '>
-        <NavLink href="/admin">Dashboard</NavLink>
-        <NavLink href="/admin/products">Products</NavLink>
-        <NavLink href="/admin/users">Customers</NavLink>
-        <NavLink href="/admin/orders">Orders</NavLink>
+        <div className='flex items-center justify-center w-full'>
+          <NavLink href="/admin">Dashboard</NavLink>
+        </div>
+        
+        <div className='flex items-center justify-center w-full'>
+          <NavLink href="/admin/products">Products</NavLink>
+        </div>
+        
+        <div className='flex items-center justify-center w-full'>
+          <NavLink href="/admin/users">Customers</NavLink>
+        </div>
+
+        <div className='flex items-center justify-center w-full'>
+         <NavLink href="/admin/orders">Orders</NavLink>
+        </div>  
+
+        <div className='flex items-center justify-center w-full'>
+          <NavLink href="/" className='flex items-center justify-center m-4'>Customer Pages</NavLink>
+        </div>
       </Navigation>
       <div className="">
         {children}

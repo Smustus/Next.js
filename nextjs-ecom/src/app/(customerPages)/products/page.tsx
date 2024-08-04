@@ -1,10 +1,11 @@
 import CustomerCard, { CustomerCardEmpty } from '@/components/CustomerCard'
 import prisma from '@/db/db';
+import { caching } from '@/utilities/cache';
 import React, { Suspense } from 'react'
 
-async function fetchAvailableProducts(){
-  return await prisma.product.findMany({where: {available: true}});
-}
+const fetchAvailableProducts = caching(() => {
+  return prisma.product.findMany({where: {available: true}});
+}, ["/products", "fetchAvailableProducts"])
 
 async function ProductSuspense() {
   const products = await fetchAvailableProducts();

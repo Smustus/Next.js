@@ -27,7 +27,7 @@ const BaseNavLink = ({ className, disabled, isCurrentPath, ...props }: NavLinkPr
   if(path.startsWith("/admin")){
     commonClasses = `text-base my-1 p-3 drop-shadow-lg hover:underline ${isCurrentPath ? "text-white bg-gradient-to-br from-stone-300 via-stone-400 to-stone-300 rounded-md" : ""} ${className || ""}`;
   } else {
-    commonClasses = `text-base my-4 drop-shadow-lg hover:underline ${isCurrentPath ? "text-neutral-200 underline" : ""} ${className || ""}`;
+    commonClasses = `text-base my-1 p-3 drop-shadow-lg hover:underline ${isCurrentPath ? "text-white bg-gradient-to-b from-slate-700 via-slate-500 to-slate-700 rounded-md" : ""} ${className || ""}`;
   }
   
   

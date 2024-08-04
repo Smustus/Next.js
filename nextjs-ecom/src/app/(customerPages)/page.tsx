@@ -22,7 +22,7 @@ type ProductGridSectionProps = {
 function ProductGridSection({fetchProducts, title}: ProductGridSectionProps){
   return (
   <div className="space-y-4 m-4">
-    <section className="flex after:gap-4 items-center">
+    <section className="flex gap-2 items-center">
       <h2 className="text-xl font-semibold my-2">{title}</h2>
       <Button href="/products" className="space-x-2 flex items-center justify-center bg-gradient-to-b from-transparent via-transparent to-transparent hover:text-slate-300 hover:bg-transparent  hover:text-focus-visible:outline-dotted focus-visible:text-stone-400 focus-visible:rounded py-1 px-3">
         Alla produkter
