@@ -1,4 +1,23 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<br>
+Full-Stack Webshop in NextJS
+<br>
+SQLite database
+<br>
+Dependancies:
+<br>
+ORM - Prisma
+<br>
+Validation - Zod
+<br>
+Payment - Stripe
+<br>
+Admin Page
+<br>
+username: admin
+<br>
+password: admin
+<br>
 
 ## Getting Started
 
@@ -17,12 +36,3 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 ---------------------------------------------------------------------------------------------------------------
 
-Full-Stack Webshop in NextJS
-
-SQLite database
-
-Dependancies:
-ORM - Prisma
-Validation - Zod
-
-Admin Page

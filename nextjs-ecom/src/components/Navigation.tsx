@@ -25,9 +25,9 @@ const BaseNavLink = ({ className, disabled, isCurrentPath, ...props }: NavLinkPr
   const path = usePathname();
   let commonClasses;
   if(path.startsWith("/admin")){
-    commonClasses = `text-base my-1 p-3 drop-shadow-lg hover:underline ${isCurrentPath ? "text-white bg-gradient-to-br from-stone-300 via-stone-400 to-stone-300 rounded-md" : ""} ${className || ""}`;
+    commonClasses = `my-1 py-3 px-4 drop-shadow-lg hover:underline ${isCurrentPath ? "text-white bg-gradient-to-br from-stone-300 via-stone-400 to-stone-300 rounded-md" : ""} ${className || ""}`;
   } else {
-    commonClasses = `text-base my-1 p-3 drop-shadow-lg hover:underline ${isCurrentPath ? "text-white bg-gradient-to-b from-slate-700 via-slate-500 to-slate-700 rounded-md" : ""} ${className || ""}`;
+    commonClasses = `my-1 py-3 px-4 drop-shadow-lg hover:underline ${isCurrentPath ? "text-white bg-gradient-to-b from-slate-700 via-slate-500 to-slate-700 rounded-md" : ""} ${className || ""}`;
   }
   
   
@@ -40,7 +40,7 @@ const BaseNavLink = ({ className, disabled, isCurrentPath, ...props }: NavLinkPr
   }
   
   return (
-    <Link {...props} className={`hover:text-neutral-200 focus-visible:outline-dotted focus-visible:text-opacity-70 ${commonClasses}`}>
+    <Link {...props} className={`hover:opacity-70 focus-visible:outline-dotted focus-visible:opacity-70 ${commonClasses}`}>
       {props.children}
     </Link>
   );
@@ -51,7 +51,7 @@ export const NavLink = (props: NavLinkProps) => {
   return <BaseNavLink {...props} isCurrentPath={pathname === props.href} />;
 }
 
-export const DropdownLink = (props: NavLinkProps) => {
+export const DropdownLink = (props: NavLinkProps) => {  
   return <BaseNavLink {...props} />;
 }
 

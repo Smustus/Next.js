@@ -9,6 +9,12 @@
   /* border: 1px dotted red; */
 }
 
+*:focus-visible {
+  outline: dotted;
+  color: rgba(255, 255, 255, 0.8);
+  opacity: 0.8;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -35,12 +41,28 @@ body {
 }
 
 h1, h2 {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
+  font-size: clamp(1.2rem, 1.2rem + 0.2vw, 1.5rem);
+}
+
+h3 {
+  font-size: clamp(0.875rem, 0.875rem + 0.2vw, 1.125rem);
+}
+
+h4 {
+  font-size: clamp(0.875rem, 0.875rem + 0.2vw, 1.125rem);
+}
+
+p {
+  font-size: clamp(0.8rem, 0.8rem + 0.2vw, 1rem);
 }
 
 button, a {
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+  font-size: clamp(0.875rem, 0.875rem + 0.2vw, 1.125rem);
 }
+
+
 
 @layer utilities {
   .text-balance {

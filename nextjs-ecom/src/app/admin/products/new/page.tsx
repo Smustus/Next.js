@@ -1,5 +1,5 @@
 import PageHeader from "@/components/PageHeader"
-import ProductForm from "../productForm/ProductForm"
+import ProductForm from "@/components/productForm/ProductForm"
 
 const NewProduct = () => {
   return (

@@ -7,7 +7,7 @@ interface TableHeaderProps {
 
 const TableHeader = ({children, className}: TableHeaderProps) => {
   return (
-    <h3 className={`text-base mx-1 ${className}`}>
+    <h3 className={`mx-1 ${className}`}>
       {children}
     </h3>
   )

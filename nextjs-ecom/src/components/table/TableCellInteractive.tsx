@@ -9,7 +9,7 @@ interface TableCellProps {
 const TableCellInteractive = ({children, className}: TableCellProps) => {
 
   return (
-    <div className={`text-xl mx-1 ${className}`}>
+    <div className={`mx-1 ${className}`}>
       {children}
     </div>
   )

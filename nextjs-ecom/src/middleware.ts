@@ -18,5 +18,5 @@ async function isAuthenticated(req: NextRequest){
 }
 
 export const config = {
-  matcher: "/admin/:path*" //specifies that the middleware is applied to all routes that match the pattern
+  matcher: "/admin/:path*" //config = specifies that the middleware is applied to all routes that match the pattern
 }

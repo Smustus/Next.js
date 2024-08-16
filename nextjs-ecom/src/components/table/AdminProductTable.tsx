@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import DropdownMenu from '../dropdownMenu/DropdownMenu';
 import TableRow from './TableRow';
 import TableCell from './TableCell';
-import { NavLink } from '@/components/Navigation';
+import { DropdownLink } from '@/components/Navigation';
 import { formatNumber, formatSEK } from '@/utilities/formatters';
 import TableCellInteractive from './TableCellInteractive';
 import { DeleteItem, ToggleActiveItem } from '@/app/admin/_actions/productActions';
@@ -36,17 +36,18 @@ const AdminProductTable: React.FC<AdminProductTableProps> = ({ products }) => {
               <DropdownMenu
                 isActive={activeDropdown === product.id}
                 toggleDropdown={() => handleDropdownToggle(product.id)}>
-                <NavLink href="/admin" className='text-base' disabled>DashBoard</NavLink>
+                <DropdownLink href="/admin" className='' disabled>DashBoard</DropdownLink>
                 <MenuItemSeparator />
-                <NavLink href={`/admin/products/${product.id}/edit`} className='text-base'>Ändra</NavLink>
+                <DropdownLink href={`/admin/products/${product.id}/edit`} className=''>Ändra</DropdownLink>
                 <MenuItemSeparator />
                 <ToggleActiveItem id={product.id} available={product.available} />
                 <MenuItemSeparator />
                 <DeleteItem id={product.id} disabled={product._count.orders > 0}/>
                 <MenuItemSeparator />
-                <a download href={`/admin/products/${product.id}/download`} className={`text-base p-2 m-2 hover:text-stone-400 hover:text-focus-visible:outline-dotted focus-visible:text-stone-400 focus-visib drop-shadow-lg`}>
+                <a download href={`/admin/products/${product.id}/download`} className={`my-1 py-3 px-4 drop-shadow-lg hover:underline hover:opacity-70 focus-visible:outline-dotted focus-visible:opacity-70`}>
                   Ladda ner
                 </a>
+                {/* <DropdownLink download href={`/admin/products/${product.id}/download`}>Ladda ner</DropdownLink> */}
               </DropdownMenu>
             </div>
           </TableCellInteractive>

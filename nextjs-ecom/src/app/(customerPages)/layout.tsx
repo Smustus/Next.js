@@ -22,11 +22,13 @@ function Layout({children,}: Readonly<{children: React.ReactNode}>) {
           <NavLink href="/orders">Beställningar</NavLink>
           </div>
         </section>
-        <NavLink href="/admin" className="w-full flex justify-end">Admin Page</NavLink>
+        <div className="w-full flex justify-end">
+          <NavLink href="/admin" className="">Admin Page</NavLink>
+        </div>
       </Navigation>
-      <div className="">
+      <main className="flex min-h-screen flex-col items-center p-6 bg-gradient-to-b from-slate-300 to-slate-400">
         {children}
-      </div>
+      </main>
       
     </>
   );

@@ -1,5 +1,5 @@
 import PageHeader from "@/components/PageHeader"
-import ProductForm from "../../productForm/ProductForm"
+import ProductForm from "../../../../../components/productForm/ProductForm"
 import prisma from "@/db/db"
 
 const EditProduct = async ({params: {id}}: {params: {id: string}}) => {

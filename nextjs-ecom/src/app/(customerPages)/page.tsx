@@ -46,12 +46,10 @@ async function ProductSuspense({fetchProducts}: {fetchProducts: () => Promise<Pr
 
 
 export default function HomePage() {
-  return (
-    <main className="flex min-h-screen flex-col items-center p-6 bg-gradient-to-b from-slate-300 to-slate-400">
-        
+  return ( 
+    <>      
       <ProductGridSection fetchProducts={getNewestProducts} title="Nya produkter" />
       <ProductGridSection fetchProducts={getPopularProducts} title="Favoriter" />
-
-    </main>
+    </> 
   );
 }
