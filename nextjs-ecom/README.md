@@ -1,9 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-<br>
+<br><br>
 Full-Stack Webshop in NextJS
-<br>
+<br><br>
 SQLite database
-<br>
+<br><br>
 Dependancies:
 <br>
 ORM - Prisma
@@ -11,13 +11,13 @@ ORM - Prisma
 Validation - Zod
 <br>
 Payment - Stripe
-<br>
+<br><br>
 Admin Page
 <br>
 username: admin
 <br>
 password: admin
-<br>
+<br><br>
 
 ## Getting Started
 
